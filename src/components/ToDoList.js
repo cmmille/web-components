@@ -1,9 +1,16 @@
-const { LitElement, html } = window;
+const { LitElement, html, css } = window;
 
 export class ToDoList extends LitElement {
   static properties = {
     _listItems: { state: true },
   };
+
+  static styles = css`
+    .completed {
+      text-decoration-line: line-through;
+      color: #777;
+    }
+  `;
 
   constructor() {
     super();
@@ -23,11 +30,24 @@ export class ToDoList extends LitElement {
     this.input.value = "";
   }
 
+  toggleCompleted(item) {
+    item.completed = !item.completed;
+    this.requestUpdate();
+  }
+
   render() {
     return html`
       <h2>To Do</h2>
       <ul>
-        ${this._listItems.map((item) => html`<li>${item.text}</li>`)}
+        ${this._listItems.map(
+          (item) =>
+            html`<li
+              class=${item.completed ? "completed" : ""}
+              @click=${() => this.toggleCompleted(item)}
+            >
+              ${item.text}
+            </li>`
+        )}
       </ul>
       <input id="newitem" aria-label="New item" />
       <button @click=${this.addToDo}>Add</button>

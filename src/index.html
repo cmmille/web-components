@@ -7,11 +7,20 @@
     <script defer src="ToDoItem.js"></script>
     <link rel="stylesheet" href="styles.css">
     <title>Web Components Demo</title>
+    <script type="module">
+        import { LitElement, html, css } from "https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js"
+        window.LitElement = LitElement
+        window.html = html
+        window.css = css
+    </script>
+
+    <script defer type="module" src="lit/MyCard.js"></script>
 </head>
 
 <body>
     <todo-item checked="true">Hello! <span slot="description">So descriptive</span></todo-item>
     <todo-item>Goodbye!</todo-item>
+    <my-card></my-card>
 
     <dialog id="modal">
         <div class="modal-content">
@@ -30,7 +39,6 @@
         </div>
     </dialog>
     <button onclick="modal.showModal()">Open Modal</button>
-
 </body>
 
 </html>

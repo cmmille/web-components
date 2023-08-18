@@ -8,6 +8,28 @@
   max-width: 500px;
 }
 
+#modal[open] {
+  animation: bounce-in 500ms ease-in-out;
+  opacity: 1;
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(15px);
+  }
+  80% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .modal-content {
   display: flex;
   flex-direction: column;

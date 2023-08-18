@@ -5,6 +5,33 @@ class ToDoItem extends HTMLElement {
     this.template = this.createTemplate();
     const shadow = this.attachShadow({ mode: "open" });
     shadow.appendChild(this.template.content.cloneNode(true));
+    this.checkbox = shadow.querySelector("input[type='checkbox']");
+  }
+
+  // declare which attributes should call attributesChangedCallback
+  static get observedAttributes() {
+    return ["checked"];
+  }
+
+  // runs whenever the named observed attributes changes
+  attributeChangedCallback(name, _oldValue, newValue) {
+    if (name === "checked") {
+      this.updateChecked(newValue);
+    }
+  }
+
+  // called when first added to DOM
+  connectedCallback() {
+    console.log("connected");
+  }
+
+  //  called when removed from DOM
+  disconnectedCallback() {
+    console.log("disconnected");
+  }
+
+  updateChecked(value) {
+    this.checkbox.checked = value != null && value != "false";
   }
 
   createTemplate() {
@@ -46,3 +73,12 @@ class ToDoItem extends HTMLElement {
 }
 
 customElements.define("todo-item", ToDoItem);
+
+// const item = document.querySelector("todo-item");
+// // toggle checked every 0.5sec
+// let checked = true;
+// setInterval(() => {
+//   console.log("changing interval", Date.now());
+//   checked = !checked;
+//   item.setAttribute("checked", checked);
+// }, 500);

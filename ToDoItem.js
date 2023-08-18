@@ -10,9 +10,29 @@ class ToDoItem extends HTMLElement {
   createTemplate() {
     const template = document.createElement("template");
     template.innerHTML = `
-        <style> h1 { color: green;} </style>
-        <h1><slot></slot></h1>
-    `;
+          <style>
+              :host {
+                  display: block;
+                  margin: 10px;
+              }
+              label {
+                  display: flex;
+                  align-items: center;
+              }
+              input[type="checkbox"] {
+                  margin-right: 10px;
+              }
+              h1 {
+                  color: green;
+                  margin: 0;
+                  font-size: 1rem;
+              }
+          </style>
+          <label>
+              <input type="checkbox">
+              <h1><slot></slot></h1>
+          </label>
+      `;
     return template;
   }
 }

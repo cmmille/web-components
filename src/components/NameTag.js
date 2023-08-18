@@ -1,6 +1,6 @@
 const { LitElement, html } = window;
 
-class NameTag extends LitElement {
+export class NameTag extends LitElement {
   static properties = {
     name: {},
   };

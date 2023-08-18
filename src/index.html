@@ -14,13 +14,19 @@
         window.css = css
     </script>
 
-    <script defer type="module" src="components/NameTag.js"></script>
+    <script defer type="module" src="components.js"></script>
 </head>
 
 <body>
-    <todo-item checked="true">Hello! <span slot="description">So descriptive</span></todo-item>
-    <todo-item>Goodbye!</todo-item>
+    <div>
+        <todo-item checked="true">Hello! <span slot="description">So descriptive</span></todo-item>
+        <todo-item>Goodbye!</todo-item>
+    </div>
+    <button onclick="modal.showModal()">Open Modal</button>
+
     <name-tag></name-tag>
+
+    <check-box></check-box>
 
     <dialog id="modal">
         <div class="modal-content">
@@ -38,7 +44,6 @@
             <button onclick="modal.close()">Close</button>
         </div>
     </dialog>
-    <button onclick="modal.showModal()">Open Modal</button>
 </body>
 
 </html>

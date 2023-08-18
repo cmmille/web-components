@@ -56,3 +56,18 @@ button {
 button:hover {
   background-color: color-mix(in srgb, steelblue 80%, black);
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f5f5f5;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}

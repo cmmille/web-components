@@ -5,13 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="ToDoItem.js"></script>
+    <link rel="stylesheet" href="styles.css">
     <title>Web Components Demo</title>
 </head>
 
 <body>
     <todo-item checked="true">Hello! <span slot="description">So descriptive</span></todo-item>
     <todo-item>Goodbye!</todo-item>
-    <h1>I am an h1!</h1>
+
+    <dialog id="modal">
+        <div class="modal-content">
+            <h1>My Modal</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus consequuntur dicta aliquid enim
+                earum
+                accusamus quasi officia dignissimos, magnam explicabo deserunt ut? Ducimus adipisci enim eos, quidem
+                deleniti ullam hic!
+                Cum perspiciatis iure ea, ullam enim a quisquam maxime fugit doloribus, ex hic praesentium? Modi eum ea
+                eos
+                obcaecati facilis. Quaerat magnam tempore exercitationem nesciunt omnis, blanditiis sunt in nam?
+                Illum quam vitae, debitis, ad quia atque asperiores ut nobis tempora sapiente accusamus similique cumque
+                recusandae inventore ab? Hic, modi mollitia? Quidem debitis eos maxime totam. Quam dolorem veniam eum.
+            </p>
+            <button onclick="modal.close()">Close</button>
+        </div>
+    </dialog>
+    <button onclick="modal.showModal()">Open Modal</button>
 
 </body>
 
